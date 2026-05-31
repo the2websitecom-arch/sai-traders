@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sai Traders | Premium Land & Real Estate</title>
+    <meta
+      name="description"
+      content="Sai Traders offers premium land and real estate listings with direct WhatsApp enquiry and owner-managed property uploads."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#home" aria-label="Sai Traders home">
+        <span class="brand-mark">ST</span>
+        <span>
+          <strong>Sai Traders</strong>
+          <small>Land & Real Estate</small>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#properties">Properties</a>
+        <a href="#trust">Why us</a>
+        <a href="#owner-panel">Owner panel</a>
+        <a class="nav-cta" id="whatsappTop" href="#" target="_blank" rel="noopener">WhatsApp</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="hero-content">
+          <p class="eyebrow">Premium land deals with verified details</p>
+          <h1>Sai Traders</h1>
+          <p class="hero-copy">
+            Classy land listings, direct owner-managed uploads, and instant buyer enquiries through WhatsApp.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#properties">View properties</a>
+            <a class="button ghost" href="#owner-panel">Owner login</a>
+          </div>
+        </div>
+        <div class="hero-stats" aria-label="Business highlights">
+          <div>
+            <strong>Prime</strong>
+            <span>Land listings</span>
+          </div>
+          <div>
+            <strong>Direct</strong>
+            <span>WhatsApp enquiry</span>
+          </div>
+          <div>
+            <strong>Secure</strong>
+            <span>Firebase backend</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section intro" id="trust">
+        <div>
+          <p class="eyebrow dark">Built for serious buyers</p>
+          <h2>Elegant property discovery with owner-controlled listings.</h2>
+        </div>
+        <div class="trust-grid">
+          <article>
+            <span class="icon">Premium</span>
+            <h3>Rich presentation</h3>
+            <p>Large photography, clean specs, and premium listing cards make each land parcel easy to inspect.</p>
+          </article>
+          <article>
+            <span class="icon">Fast</span>
+            <h3>Fast enquiries</h3>
+            <p>Every buy button opens WhatsApp with the property name already included for quicker follow-up.</p>
+          </article>
+          <article>
+            <span class="icon">Private</span>
+            <h3>Private owner access</h3>
+            <p>Only the owner can sign in and add land details, pricing, location, description, and photos.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section properties-section" id="properties">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow dark">Available properties</p>
+            <h2>Featured land listings</h2>
+          </div>
+          <span class="count-pill" id="propertyCount">Loading</span>
+        </div>
+        <div class="property-grid" id="propertyGrid" aria-live="polite"></div>
+      </section>
+
+      <section class="owner-section" id="owner-panel">
+        <div class="owner-copy">
+          <p class="eyebrow">Owner panel</p>
+          <h2>Login to add new property details.</h2>
+          <p>
+            Add land photos from camera or gallery, write the full description, and publish listings through Firebase.
+          </p>
+        </div>
+
+        <div class="panel-shell">
+          <form class="login-panel" id="loginPanel">
+            <h3>Owner Login</h3>
+            <label>
+              Email
+              <input type="email" id="ownerEmail" autocomplete="email" placeholder="owner@example.com" required />
+            </label>
+            <label>
+              Password
+              <input type="password" id="ownerPassword" autocomplete="current-password" placeholder="Password" required />
+            </label>
+            <button class="button primary full" type="submit">Login as owner</button>
+            <p class="form-note" id="loginMessage">Use the owner account created in Firebase Authentication.</p>
+          </form>
+
+          <form class="property-form is-hidden" id="propertyForm">
+            <div class="panel-topline">
+              <h3>Add Property</h3>
+              <button class="text-button" type="button" id="logoutButton">Logout</button>
+            </div>
+            <div class="form-grid">
+              <label>
+                Property title
+                <input type="text" id="title" placeholder="Example: Highway corner land" required />
+              </label>
+              <label>
+                Location
+                <input type="text" id="location" placeholder="City, district, state" required />
+              </label>
+              <label>
+                Area
+                <input type="text" id="area" placeholder="Example: 2 acres / 6000 sq.ft" required />
+              </label>
+              <label>
+                Price
+                <input type="text" id="price" placeholder="Example: 45 lakh" required />
+              </label>
+            </div>
+            <label>
+              About the land
+              <textarea id="description" rows="5" placeholder="Road access, approvals, water, nearby landmarks..." required></textarea>
+            </label>
+            <label class="upload-box">
+              <input type="file" id="photos" accept="image/*" capture="environment" multiple required />
+              <span>Upload photos from camera or gallery</span>
+              <small>Mobile users can take a photo directly or choose from gallery.</small>
+            </label>
+            <div class="preview-grid" id="previewGrid"></div>
+            <button class="button primary full" type="submit">Publish property</button>
+            <p class="form-note" id="publishMessage">Photos upload to Firebase Storage and details save in Firestore.</p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <strong>Sai Traders</strong>
+        <span>Premium land and real estate services</span>
+      </div>
+      <a id="whatsappFooter" href="#" target="_blank" rel="noopener">Contact on WhatsApp</a>
+    </footer>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
